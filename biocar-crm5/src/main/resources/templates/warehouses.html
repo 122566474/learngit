@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)http://192.168.0.236/admin/inventory/orders -->
+<html data-livestyle-extension="available" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>网化商城 管理后台</title>
+    <link rel="stylesheet" media="screen" href="css/semantic.min.css"/>
+    <link rel="stylesheet" media="screen" href="css/main.css"/>
+    <script src="js/application.js"></script>
+    <meta name="csrf-param" content="authenticity_token"/>
+    <meta name="csrf-token" content="/T4qYIj3dOzZ/MauS+1W4hPY9k9m8uI5m1vTAvP8xOBv2bd8hFRxPA7NDXdjPZBKMM96tB+b0mQ5FuAJ79XaqA=="/>
+</head>
+
+<body>
+    <div class="ui fixed top menu">
+        <a href="javascript:void(0)" class="icon active item" id="hideToggle" style="display: flex;"><h3><i class="content icon"></i></h3></a>
+        <a href="javascript:void(0)" class="icon active item" id="showToggle" style="display: none;"><h3><i class="content icon"></i></h3></a>
+        <div class="menu right">
+            <a class="icon item pointer" data-toggle="popup" data-content="#mail" data-position="bottom right"><i class="mail icon"></i></a>
+            <a class="icon item pointer" data-toggle="popup" data-content="#notif" data-position="bottom right"><i class="bell icon"></i></a>
+            <!-- 头像 -->
+            <div class="item"><span>admin</span></div>
+            <a class="icon item pointer" data-toggle="popup" data-content="#user" data-position="bottom right">
+                <img class="ui avatar image" src="./files/male-b14afe8f527e08644dc048ab83a05f1d6fda352b3d54aa0f6f88965d08a6ee7f.jpg" alt="Male"/>
+            </a>
+            <div id="user" class="ui popup">
+                <div class="ui secondary vertical menu">
+                    <div class="header item">USER MENU</div>
+                    <a class="item" href="#">
+            Change Password  <i class="privacy icon"></i></a> <a class="item" rel="nofollow" data-method="delete" href="#">
+            Logout <i class="sign out icon"></i></a> </div>
+            </div>
+        </div>
+    </div>
+    <div class="pusher">
+        <div class="ui fluid container">
+            <div class="ui two column grid">
+                <div class="side menu close_menu" id="sideMenu">
+                    <div class="ui vertical fluid menu" id="verticalMenu">
+                        <ul>
+                            <li class="">
+                                <a class="item">
+                                    <i class="configure icon"></i>
+                                    <span class="main_menu">系统管理</span>
+                                    <i class="right dropdown icon"></i>
+                                </a>
+                                <div class="menu content child active">
+                                    <a class="item" href="#">
+                                        <i class="left bullseye icon"></i>
+                                        <span>公司管理</span>
+                                    </a>
+                                    <a class="item" href="#">
+                                        <i class="left bullseye icon"></i>
+                                        <span>联系人管理</span>
+                                    </a>
+                                    <a class="item" href="#">
+                                        <i class="left bullseye icon"></i>
+                                        <span>用户管理</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sixteen wide column" id="content">
+                    <div class="thirteen wide column">
+                        <div class="ui grid">
+                            <div class="left floated fourteen wide column">
+                                <h2>仓库列表</h2>
+                            </div>
+                        </div>
+
+                        <div class="ui blue segment">
+                            <div class="ui form ">
+                                <form style="margin-bottom:0;" id="inquiry_search_form" class="form-horizontal" action="/work/inquiries" accept-charset="UTF-8" data-remote="true" method="get">
+                                    <input name="utf8" type="hidden" value="✓"/>
+                                    <div class="ui six column grid">
+                                        <div class="column">
+                                            <div class="ui search selection chemical">
+                                                <input class="prompt" autocomplete="off" type="text" name="chemical" id="chemical" placeholder="CAS号" value=""/>
+                                                <div class="results"></div>
+                                            </div>
+                                        </div>
+                                        <div class="column">
+                                            <div class="ui search selection chemical">
+                                                <input class="prompt" autocomplete="off" type="text" name="chemical" id="chemical" placeholder="订单编号" value=""/>
+                                                <div class="results"></div>
+                                            </div>
+                                        </div>
+                                        <div class="column">
+                                            <div class="ui fluid dropdown field selection" tabindex="0">
+                                                <select name="inquiry_manager_id" id="inquiry_manager_id">
+                                                    <option value=" ">订单状态</option>
+                                                    <option value="5">Alyssa</option>
+                                                    <option value="7">Jolin</option>
+                                                    <option value="6">Sophie</option>
+                                                    <option value="8">Vivian</option>
+                                                </select><i class="dropdown icon"></i>
+                                                <div class="text">订单状态</div>
+                                                <div class="menu" tabindex="-1">
+                                                    <div class="item active selected" data-value=" ">全部仓库</div>
+                                                    <div class="item" data-value="5">Alyssa</div>
+                                                    <div class="item" data-value="7">Jolin</div>
+                                                    <div class="item" data-value="6">Sophie</div>
+                                                    <div class="item" data-value="8">Vivian</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="column">
+                                            <div class="ui left icon input fluid"/>
+                                                <i class="calendar icon"></i>
+                                                <input type="text" placeholder="Start Date" class="textbox-n" name="start_date" onfocus="(this.type='date')" onblur="(this.type='text')" value=""/>
+                                            </div>
+                                        </div>
+                                        <div class="column">
+                                            <div class="ui left icon input fluid"/>
+                                                <i class="calendar icon"></i>
+                                                <input type="text" placeholder="End Date" class="textbox-n" name="end_date" onfocus="(this.type='date')" onblur="(this.type='text')" value=""/>
+                                            </div>
+                                        </div>
+                                        <div class="column">
+                                            <button type="submit" class="ui primary button">搜索</button>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" name="state" id="state" value=""/>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="ui blue segment">
+                            <a class="ui button " data-content="Add Inquiry" data-variation="inverted" href="#">
+                                <i class="share square icon"></i>新增
+                            </a>
+                            <table class="ui selectable striped celled table">
+                                <thead>
+                                    <tr>
+                                        <th class="center aligned" style="width: 10%;">编号</th>
+                                        <th class="center aligned" style="width: 25%;">公司名称</th>
+                                        <th class="center aligned" style="width: 10%;">公司编号</th>
+                                        <th class="center aligned" style="width: 10%;">公司地址</th>
+                                        <th class="center aligned" style="width: 10%;">创建时间</th>
+                                        <th class="center aligned" style="width: 10%;">操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="companies:${pages.content}">
+                                        <td class="center aligned" th:text="${companies.id}">武汉仓库</td>
+                                        <td class="center aligned" th:text="${companies.name}">重庆市江北区盘溪一支路重庆化工研究院（厂区）仪表楼</td>
+                                        <td class="center aligned" th:text="${companies.code}">邬煜峰</td>
+                                        <td class="center aligned" th:text="${companies.address}">xxxx</td>
+                                        <td class="center aligned" th:text="${companies.createtime}">2016-04-01</td>
+                                        <td class="center aligned">
+                                            <a class="ui icon green button" data-content="详情" data-variation="inverted" href="#" th:href="@{show?id=} + ${companies.id}">
+                                                <i class="file text outline icon"></i>
+                                            </a>
+                                            <button class="ui icon red button" type="button" onclick="show_confirm(this)" data-content="删除" data-variation="inverted">
+                                                <i class="center aligned remove white icon"></i>
+                                            </button>
+                                            <button class="ui icon blue button" type="button" onclick="transfer(this)" data-content="编辑" data-variation="inverted">
+                                                <i class="edit icon"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <!--<tr>
+                                        <td class="center aligned">上海仓库</td>
+                                        <td class="center aligned">重庆市江北区盘溪一支路重庆化工研究院（厂区）仪表楼</td>
+                                        <td class="center aligned">邬煜峰</td>
+                                        <td class="center aligned">18723210635</td>
+                                        <td class="center aligned">2016-04-01</td>
+                                        <td class="center aligned">郭果</td>
+                                        <td class="center aligned">
+                                            <a class="ui icon green button" data-content="查看库存" data-variation="inverted" href="#">
+                                                <i class="file text outline icon"></i>
+                                            </a>
+                                            <button class="ui icon red button" type="button" onclick="show_confirm(this)" data-content="删除" data-variation="inverted">
+                                                <i class="center aligned remove white icon"></i>
+                                            </button>
+                                            <button class="ui icon blue button" type="button" onclick="transfer(this)" data-content="编辑" data-variation="inverted">
+                                                <i class="edit icon"></i>
+                                            </button>
+                                        </td>
+                                    </tr>-->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div style="margin-top: 12px;">
+                            <span class="blue" style="text-align: left;">
+                                Total: 266
+                              </span>
+                        </div>
+                        <div class="ui right floated pagination menu">
+                            <a class="item active" href="/admin/inventory/checkins" th:href="@{page?pageNow=0}">1</a>
+                            <a class="item" href="/admin/inventory/checkins?page=2" th:href="@{page?pageNow=1}">2</a>
+                            <a class="item" href="/admin/inventory/checkins?page=3" th:href="@{page?pageNow=2}">3</a>
+                            <a class="item" href="/admin/inventory/checkins?page=4" th:href="@{page?pageNow=3}">4</a>
+                            <a class="item" href="/admin/inventory/checkins?page=5" th:href="@{page?pageNow=4}">5</a>
+                            <span th:if="${pages.last}">
+                                 <a class="icon item" href="javaScript:void(0)" >
+                                    <i class="right angle icon"></i>
+                                </a>
+                            </span>
+                            <span th:if="${pages.last == false}">
+                                <a class="icon item" href="/admin/inventory/checkins?page=2" th:href="@{page?pageNow=} + ${pages.number + 1}">
+                                    <i class="right angle icon"></i>
+                                </a>
+                            </span>
+                            <a class="icon item" href="/admin/inventory/checkins?page=5" th:href="@{page?pageNow=} + ${pages.totalPages - 1}">
+                                <i class="right angle double icon"></i>
+                            </a>
+                            <div class="ui search dropdown selection" style="min-width: 70px;">
+                                <select onchange="window.location.href = this.value">
+                                    <option value="/admin/inventory/checkins" >1</option>
+                                    <option value="/admin/inventory/checkins?page=2" >2</option>
+                                    <option value="/admin/inventory/checkins?page=3" >3</option>
+                                    <option value="/admin/inventory/checkins?page=4" >4</option>
+                                    <option value="/admin/inventory/checkins?page=5" >5</option>
+                                </select><i class="dropdown icon" tabindex="0"><div class="menu" tabindex="-1"></div></i>
+                                <input class="search" autocomplete="off" tabindex="0">
+                                <div class="text">1</div>
+                                <div class="menu transition hidden" tabindex="-1">
+                                    <div class="item active selected" data-value="/admin/inventory/checkins" th:href="@{page?pageNow=0}">1</div>
+                                    <div class="item" data-value="/admin/inventory/checkins?page=2" th:href="@{page?pageNow=1}">2</div>
+                                    <div class="item" data-value="/admin/inventory/checkins?page=3" th:href="@{page?pageNow=2}">3</div>
+                                    <div class="item" data-value="/admin/inventory/checkins?page=4" th:href="@{page?pageNow=3}">4</div>
+                                    <div class="item" data-value="/admin/inventory/checkins?page=5" th:href="@{page?pageNow=4}">5</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+     <div class="ui modal" id="confirm_modal">
+      <i class="close icon"></i>
+      <div class="header">
+        提示
+      </div>
+      <div class="image content">
+        <div class="description">
+          <div class="ui header">是否删除仓库？</div>
+        </div>
+      </div>
+      <div class="actions">
+          <div class="ui red cancel inverted button">
+            <i class="remove icon"></i>取消
+          </div>
+          <div class="ui green ok inverted button">
+            <i class="checkmark icon"></i>确定
+          </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+    // 删除提示
+      function show_confirm(obj){
+        $('#confirm_modal')
+            .modal({
+              closable  : false,
+              onApprove : function() {
+                $(obj).next().click();
+              }
+            })
+            .modal('setting', {autofocus: false}).modal('show');
+        }
+            $('.dropdown')
+        .dropdown();
+    $('.button')
+        .popup();
+    $('i.icon')
+        .popup();
+    $('.icon').on('click', function() {
+        $('.popup').css("cssText", "display: none!important");
+    });
+    </script>
+</body>
+
+</html>
