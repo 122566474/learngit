@@ -21,6 +21,17 @@ public class CompaniesController {
                                 Map<String,Object> map){
         Page<Companies> pages = companiesService.getCompaniesPages(pageNow, pageSize, name);
         map.put("pages",pages);
+        map.put("name",name);
         return "warehouses";
+    }
+    //新增
+    @RequestMapping("/insert")
+    public String saveCompanies(Companies companies){
+       companiesService.saveCompanies(companies);
+        return "warehouses";
+    }
+    @RequestMapping("/add")
+    public String toadd(){
+        return "add";
     }
 }

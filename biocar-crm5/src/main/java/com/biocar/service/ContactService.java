@@ -11,4 +11,10 @@ public interface ContactService {
      * @return
      */
     public List<Contact> findAllByCompaniesId(Integer companiesId);
+
+    /**
+     * 查询所有联系人
+     * @return
+     */
+    List<Contact> findAll();
 }

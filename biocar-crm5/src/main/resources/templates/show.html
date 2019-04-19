@@ -46,11 +46,11 @@
                                     <i class="right dropdown icon"></i>
                                 </a>
                                 <div class="menu content child active">
-                                    <a class="item" href="#">
+                                    <a class="item" href="#" th:href="@{page}">
                                         <i class="left bullseye icon"></i>
                                         <span>公司管理</span>
                                     </a>
-                                    <a class="item" href="#">
+                                    <a class="item" href="#" th:href="@{index}">
                                         <i class="left bullseye icon"></i>
                                         <span>联系人管理</span>
                                     </a>
@@ -67,7 +67,7 @@
                     <div class="thirteen wide column">
                         <div class="ui grid">
                             <div class="left floated fourteen wide column">
-                                <h2>仓库列表</h2>
+                                <h2>公司联系人列表</h2>
                             </div>
                         </div>
 
@@ -75,7 +75,7 @@
                             <div class="ui form ">
                                 <form style="margin-bottom:0;" id="inquiry_search_form" class="form-horizontal" action="/work/inquiries" accept-charset="UTF-8" data-remote="true" method="get">
                                     <input name="utf8" type="hidden" value="✓"/>
-                                    <div class="ui six column grid">
+                                    <!--<div class="ui six column grid">
                                         <div class="column">
                                             <div class="ui search selection chemical">
                                                 <input class="prompt" autocomplete="off" type="text" name="chemical" id="chemical" placeholder="CAS号" value=""/>
@@ -122,7 +122,7 @@
                                         <div class="column">
                                             <button type="submit" class="ui primary button">搜索</button>
                                         </div>
-                                    </div>
+                                    </div>-->
                                     <input type="hidden" name="state" id="state" value=""/>
                                 </form>
                             </div>

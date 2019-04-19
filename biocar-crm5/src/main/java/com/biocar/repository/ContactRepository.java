@@ -15,4 +15,5 @@ public interface ContactRepository extends JpaRepository<Contact,Integer> {
      * @return
      */
     List<Contact> findContactsByCompaniesId(Integer companiesId);
+
 }

@@ -22,4 +22,10 @@ public class ContactController {
         map.put("list",list);
         return "show";
     }
+    @RequestMapping("/index")
+    public String findAll(Map<String,Object> map){
+        List<Contact> list = contactService.findAll();
+        map.put("list",list);
+        return "show";
+    }
 }

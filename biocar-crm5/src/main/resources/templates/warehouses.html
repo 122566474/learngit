@@ -22,7 +22,7 @@
             <!-- 头像 -->
             <div class="item"><span>admin</span></div>
             <a class="icon item pointer" data-toggle="popup" data-content="#user" data-position="bottom right">
-                <img class="ui avatar image" src="./files/male-b14afe8f527e08644dc048ab83a05f1d6fda352b3d54aa0f6f88965d08a6ee7f.jpg" alt="Male"/>
+                <img class="ui avatar image" src="/img/productInfo.png" alt="Male"/>
             </a>
             <div id="user" class="ui popup">
                 <div class="ui secondary vertical menu">
@@ -46,11 +46,11 @@
                                     <i class="right dropdown icon"></i>
                                 </a>
                                 <div class="menu content child active">
-                                    <a class="item" href="#">
+                                    <a class="item" href="#" th:href="@{page}">
                                         <i class="left bullseye icon"></i>
                                         <span>公司管理</span>
                                     </a>
-                                    <a class="item" href="#">
+                                    <a class="item" href="#" th:href="@{index}">
                                         <i class="left bullseye icon"></i>
                                         <span>联系人管理</span>
                                     </a>
@@ -67,18 +67,18 @@
                     <div class="thirteen wide column">
                         <div class="ui grid">
                             <div class="left floated fourteen wide column">
-                                <h2>仓库列表</h2>
+                                <h2>公司管理</h2>
                             </div>
                         </div>
 
                         <div class="ui blue segment">
                             <div class="ui form ">
-                                <form style="margin-bottom:0;" id="inquiry_search_form" class="form-horizontal" action="/work/inquiries" accept-charset="UTF-8" data-remote="true" method="get">
+                                <form style="margin-bottom:0;" id="inquiry_search_form" class="form-horizontal" action="page" accept-charset="UTF-8" data-remote="true" method="post">
                                     <input name="utf8" type="hidden" value="✓"/>
-                                    <div class="ui six column grid">
+                                    <div class="ui six column grid" >
                                         <div class="column">
                                             <div class="ui search selection chemical">
-                                                <input class="prompt" autocomplete="off" type="text" name="chemical" id="chemical" placeholder="CAS号" value=""/>
+                                                <input class="prompt" autocomplete="off" type="text" name="name" id="chemical" placeholder="公司名称" value="" th:value="${name}"/>
                                                 <div class="results"></div>
                                             </div>
                                         </div>
@@ -121,6 +121,7 @@
                                         </div>
                                         <div class="column">
                                             <button type="submit" class="ui primary button">搜索</button>
+                                            <input type="submit" value="搜索">
                                         </div>
                                     </div>
                                     <input type="hidden" name="state" id="state" value=""/>
@@ -129,7 +130,7 @@
                         </div>
 
                         <div class="ui blue segment">
-                            <a class="ui button " data-content="Add Inquiry" data-variation="inverted" href="#">
+                            <a class="ui button " data-content="Add Inquiry" data-variation="inverted" href="#" >
                                 <i class="share square icon"></i>新增
                             </a>
                             <table class="ui selectable striped celled table">
@@ -154,12 +155,12 @@
                                             <a class="ui icon green button" data-content="详情" data-variation="inverted" href="#" th:href="@{show?id=} + ${companies.id}">
                                                 <i class="file text outline icon"></i>
                                             </a>
-                                            <button class="ui icon red button" type="button" onclick="show_confirm(this)" data-content="删除" data-variation="inverted">
+                                            <!--<button class="ui icon red button" type="button" onclick="show_confirm(this)" data-content="删除" data-variation="inverted">
                                                 <i class="center aligned remove white icon"></i>
                                             </button>
                                             <button class="ui icon blue button" type="button" onclick="transfer(this)" data-content="编辑" data-variation="inverted">
                                                 <i class="edit icon"></i>
-                                            </button>
+                                            </button>-->
                                         </td>
                                     </tr>
                                     <!--<tr>

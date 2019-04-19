@@ -13,5 +13,9 @@ public interface CompaniesService {
      */
     Page<Companies> getCompaniesPages(Integer page,Integer pageSize,String name);
 
-
+    /**
+     * 新增
+     * @param companies
+     */
+    void saveCompanies(Companies companies);
 }

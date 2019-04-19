@@ -16,4 +16,10 @@ public class ContactServiceImpl implements ContactService {
         List<Contact> contacts = contactRepository.findContactsByCompaniesId(companiesId);
         return contacts;
     }
+
+    @Override
+    public List<Contact> findAll() {
+        List<Contact> list = contactRepository.findAll();
+        return list;
+    }
 }

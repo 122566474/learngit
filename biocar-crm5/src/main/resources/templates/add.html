@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新增公司</title>
+</head>
+<body>
+    <form action="/insert">
+        <table>
+            <tr>
+                <td>公司名称</td>
+                <td><input type="text" name="name"/></td>
+            </tr>
+            <tr>
+                <td>公司编号</td>
+                <td><input type="text" name="code"/></td>
+            </tr>
+            <tr>
+                <td>公司地址</td>
+                <td><input type="text" name="address"/></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit"  value="确定"/>
+                    <input type="reset" value="重置" />
+                    <input type="button"  value="返回" onclick="window.history.go(-1)"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
